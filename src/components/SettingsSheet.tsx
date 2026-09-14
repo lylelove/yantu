@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { AI_PROVIDERS, type AiConfig, DEFAULT_AI_CONFIG } from "../services/ai-types";
 import { getProviderInfo, isConfigValid, persistAiConfig, readAiConfig } from "../services/ai-config";
+import { fetchAiApi } from "../services/ai-proxy-fetch";
 
 /**
  * 设置面板 —— AI 配置。
@@ -53,7 +54,7 @@ export default function SettingsSheet({ onClose }: Props) {
     setTestStatus("testing");
     try {
       const baseUrl = config.baseUrl.replace(/\/+$/, "");
-      const response = await fetch(`${baseUrl}/models`, {
+      const response = await fetchAiApi(`${baseUrl}/models`, {
         headers: {
           Authorization: `Bearer ${config.apiKey}`,
         },

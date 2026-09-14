@@ -11,6 +11,7 @@
 import type { AiChatRequest, AiChatResponse, AiConfig, AiRegionRefinement, AiRelationExplanation } from "./ai-types";
 export type { AiRelationExplanation, AiRegionRefinement };
 import { isConfigValid } from "./ai-config";
+import { fetchAiApi } from "./ai-proxy-fetch";
 
 // ---------------------------------------------------------------------------
 // Tauri IPC proxy — bypasses browser CORS restrictions
@@ -75,21 +76,13 @@ async function chatCompletion(config: AiConfig, request: AiChatRequest, signal?:
     }
   }
 
-  // Browser dev mode: use Vite dev proxy to bypass CORS.
-  const isViteDev = typeof window !== "undefined" &&
-    (window.location.origin.includes("localhost") || window.location.origin.includes("127.0.0.1"));
-
-  if (isViteDev) {
-    const proxyUrl = `${window.location.origin}/ai-proxy`;
-    const proxyHeaders: Record<string, string> = {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${config.apiKey}`,
-      "x-ai-target": url,
-    };
-    const proxyResponse = await fetch(proxyUrl, {
+  // Web (Vite dev + Cloudflare Pages): same-origin proxy bypasses CORS.
+  if (typeof window !== "undefined") {
+    const proxyResponse = await fetchAiApi(url, {
       method: "POST",
-      headers: proxyHeaders,
+      headers,
       body,
+      signal,
     });
     if (!proxyResponse.ok) {
       const text = await proxyResponse.text().catch(() => "无响应体");
@@ -98,20 +91,7 @@ async function chatCompletion(config: AiConfig, request: AiChatRequest, signal?:
     return proxyResponse.json();
   }
 
-  // Fallback: direct fetch (production Tauri build or other environments).
-  const response = await fetch(url, {
-    method: "POST",
-    headers,
-    body,
-    signal,
-  });
-
-  if (!response.ok) {
-    const text = await response.text().catch(() => "无响应体");
-    throw new Error(`AI 请求失败 (${response.status}): ${text}`);
-  }
-
-  return response.json();
+  throw new Error("AI 请求在当前环境不可用。");
 }
 
 // ---------------------------------------------------------------------------

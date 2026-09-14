@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { readAiConfig, isConfigValid } from "../services/ai-config";
+import { fetchAiApi } from "../services/ai-proxy-fetch";
 import { useStore } from "../state/store";
 
 /**
@@ -43,7 +44,7 @@ export default function LeadsPanel() {
     }));
     try {
       const baseUrl = config.baseUrl.replace(/\/+$/, "");
-      const response = await fetch(`${baseUrl}/chat/completions`, {
+      const response = await fetchAiApi(`${baseUrl}/chat/completions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
