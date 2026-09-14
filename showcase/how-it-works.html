@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>如何使用 — 研图 Yantu</title>
+  <meta name="description" content="从载入示例地图到推开迷雾、沿线索拓展——研图 Yantu 完整使用指南。">
+  <meta property="og:title" content="研图 Yantu 使用指南">
+  <meta property="og:image" content="screenshots/02-hero-map.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">研图 <span>Yantu</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">首页</a>
+      <a href="features.html">功能</a>
+      <a href="how-it-works.html" class="active">如何使用</a>
+      <a href="../docs/产品说明计划书.md">计划书</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="切换主题">◐</button>
+      <a href="http://localhost:5173" class="nav-cta">体验 Demo</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="菜单">☰</button>
+    </div>
+  </nav>
+
+  <header class="hero" style="min-height:auto;padding:64px 32px 48px">
+    <div class="hero-content" style="grid-column:1/-1;max-width:720px">
+      <p class="hero-badge">使用指南</p>
+      <h1>从空白到<strong>更大的地图</strong></h1>
+      <p class="hero-lead">以下是用研图 Yantu 探索一个研究领域的典型流程。每一步都有真实界面截图。</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="steps">
+
+        <article class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>首次启动：载入示例地图</h3>
+            <p>打开应用后，点击右上角「载入示例地图」。示例自带五个方向的真实论文数据，其中 3 篇已读、1 篇有笔记（灯塔）。第一帧就能看到完整的视觉词汇——发光、灯塔、前沿、迷雾。</p>
+            <div class="browser-frame">
+              <div class="browser-frame-bar"><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span></div>
+              <img src="screenshots/01-welcome.png" alt="首次启动界面" loading="lazy">
+            </div>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>观察地图：理解可见度阶梯</h3>
+            <p>地图中央是已读论文（暖色发光），灯塔（冷色呼吸光晕）照得更远。空心圈是可达但未读的前沿文献。HUD 显示：已点亮 3/11、灯塔 1、视野边缘 6、可见范围覆盖 27%。</p>
+            <div class="browser-frame">
+              <div class="browser-frame-bar"><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span></div>
+              <img src="screenshots/02-hero-map.png" alt="示例地图全貌" loading="lazy">
+            </div>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>查看线索：选一条陌生但可达的路</h3>
+            <p>打开右侧「去哪儿」面板。线索按陌生度排序——越靠前越可能带你离开熟悉区域。每条线索带理由：「连接『表征学习』与『未分类』」「邻接 3 篇你已读过的论文」。</p>
+            <div class="browser-frame">
+              <div class="browser-frame-bar"><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span></div>
+              <img src="screenshots/03-leads-panel.png" alt="线索推荐面板" loading="lazy">
+            </div>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>点击论文：标记已读，推开迷雾</h3>
+            <p>在地图上点击前沿节点，打开「详情」面板。点击「标记已读」——该论文变为暖色发光，邻接文献从迷雾边缘浮现。这是核心循环的关键动作。</p>
+            <div class="browser-frame">
+              <div class="browser-frame-bar"><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span></div>
+              <img src="screenshots/workflows/explore-loop.gif" alt="选择论文、写笔记、地图扩张演示" loading="lazy" width="640" height="360">
+            </div>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h3>写笔记：升级为灯塔，照得更远</h3>
+            <p>在详情面板写下你的想法。笔记是唯一的视野增益——`read → beacon` 必须写笔记。灯塔比普通已读多照亮一跳，注解是你真的思考过的证据。</p>
+            <div class="browser-frame">
+              <div class="browser-frame-bar"><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span></div>
+              <img src="screenshots/06-paper-detail.png" alt="论文详情与笔记" loading="lazy">
+            </div>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <h3>检查版图：发现空白区域</h3>
+            <p>切换到「版图」面板。看到哪些区域已踏入、哪些从未涉足。空白区域有名字——「因果推断你从未踏入过」比一片无名空白更有叙事力。</p>
+            <div class="browser-frame">
+              <div class="browser-frame-bar"><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span></div>
+              <img src="screenshots/04-regions-panel.png" alt="区域版图" loading="lazy">
+            </div>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-num">7</div>
+          <div class="step-content">
+            <h3>接受探索任务：地图给出的方向</h3>
+            <p>「探索」面板的任务由当前地图实时推导——比如「踏入一个新区域」或「连接两个已知区域」。完成任务的唯一奖励：更大的地图。</p>
+            <div class="browser-frame">
+              <div class="browser-frame-bar"><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span></div>
+              <img src="screenshots/05-expeditions-panel.png" alt="探索任务" loading="lazy">
+            </div>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-num">8</div>
+          <div class="step-content">
+            <h3>导入自己的文库（可选）</h3>
+            <p>准备好后，点击「导入文献」上传 Zotero / BibTeX / RIS 导出文件。导入前预览识别结果；导入的文献全部可见（至少是前沿），迷雾只用于线上未知文献。</p>
+            <div class="browser-frame">
+              <div class="browser-frame-bar"><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span></div>
+              <img src="screenshots/07-import-sheet.png" alt="导入文献" loading="lazy">
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">本地开发上手</h2>
+      <pre style="background:var(--void);padding:24px;border-radius:12px;overflow-x:auto;font-size:0.9rem;border:1px solid var(--border)"><code>npm install
+npm run dev:web      # 浏览器打开 localhost:5173
+npm run dev          # Tauri 桌面端</code></pre>
+      <p style="margin-top:16px;color:var(--ink-muted);font-size:0.92rem">首次启动点「载入示例地图」，或导入自己的 Zotero 文库。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">三条设计公理</h2>
+      <div class="axioms">
+        <div class="axiom"><strong>诚实</strong><span>导入的文献永远可见，迷雾只用于未知</span></div>
+        <div class="axiom"><strong>反茧房</strong><span>线索优先推荐陌生且跨域的桥梁文献</span></div>
+        <div class="axiom"><strong>思考有价</strong><span>笔记是唯一的视野增益，点击无回报</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <h2>现在就开始探索</h2>
+      <p>载入示例地图，亲眼看到迷雾被推开</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="http://localhost:5173" class="btn btn-primary">打开 Demo</a>
+        <a href="features.html" class="btn btn-secondary">查看功能详解</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="index.html">首页</a>
+      <a href="features.html">功能</a>
+      <a href="how-it-works.html">如何使用</a>
+    </div>
+    <p>研图 Yantu · 产品展示 · 2026</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const menu = document.getElementById('menuToggle');
+    const nav = document.getElementById('navLinks');
+    const saved = localStorage.getItem('yantu-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+    toggle?.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('yantu-theme', next);
+    });
+    menu?.addEventListener('click', () => nav?.classList.toggle('open'));
+  </script>
+</body>
+</html>

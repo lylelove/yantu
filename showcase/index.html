@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>研图 Yantu — 把研究领域做成待探索的地图</title>
+  <meta name="description" content="游戏化学术探索工具：读过的论文会发光，迷雾中浮现邻接文献。发现你的文献盲区，而不是重复已知。">
+  <meta property="og:title" content="研图 Yantu">
+  <meta property="og:description" content="唯一的奖励，是更大的地图。">
+  <meta property="og:image" content="screenshots/02-hero-map.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">研图 <span>Yantu</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" class="active">首页</a>
+      <a href="features.html">功能</a>
+      <a href="how-it-works.html">如何使用</a>
+      <a href="../docs/产品说明计划书.md">计划书</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="切换主题">◐</button>
+      <a href="http://localhost:5173" class="nav-cta">体验 Demo</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="菜单">☰</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <p class="hero-badge">游戏化学术探索 · 本地优先</p>
+      <h1>把你正在研究的领域<br>做成一张<strong>待探索的地图</strong></h1>
+      <p class="hero-lead">
+        读过的论文会发光，光照到的地方浮现邻接文献，没照到的地方留在迷雾里。
+        研究的动作本身，就是推开迷雾的动作。
+      </p>
+      <div class="hero-actions">
+        <a href="how-it-works.html" class="btn btn-primary">看如何使用</a>
+        <a href="http://localhost:5173" class="btn btn-secondary">载入示例地图</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>2 分钟</strong>首次看到机制</div>
+        <div class="hero-stat"><strong>1000 篇</strong>流畅交互</div>
+        <div class="hero-stat"><strong>本地</strong>文库不上传</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="browser-frame hero-screenshot">
+        <div class="browser-frame-bar">
+          <span class="browser-frame-dot"></span>
+          <span class="browser-frame-dot"></span>
+          <span class="browser-frame-dot"></span>
+        </div>
+        <img src="screenshots/02-hero-map.png" alt="研图示例地图：已读论文发光，邻接文献在迷雾边缘浮现" width="1280" height="720" loading="eager">
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">研究者真正卡住的地方</h2>
+      <p class="section-intro">不是「我已经读过的文献之间有什么关系」，而是：<strong>我没在看什么？我的盲区长什么样？</strong></p>
+
+      <div class="compare-grid">
+        <div class="compare-card compare-old">
+          <h3>传统文献图谱</h3>
+          <p>把已有文库全部画出来</p>
+          <ul>
+            <li>回答：我知道什么</li>
+            <li>缺失的文献没有节点</li>
+            <li>盲区在界面上不存在</li>
+          </ul>
+        </div>
+        <div class="compare-arrow">→</div>
+        <div class="compare-card compare-new">
+          <h3>研图 Yantu</h3>
+          <p>默认隐藏未知，点亮才浮现</p>
+          <ul>
+            <li>回答：我还不知道什么</li>
+            <li>迷雾是认知边界的可视化</li>
+            <li>每读一篇，地图向外扩张</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="loop-diagram">
+        <div class="loop-step">读一篇</div>
+        <div class="loop-arrow">→</div>
+        <div class="loop-step highlight-lit">它点亮</div>
+        <div class="loop-arrow">→</div>
+        <div class="loop-step">照见邻接文献</div>
+        <div class="loop-arrow">→</div>
+        <div class="loop-step">发现新方向</div>
+        <div class="loop-arrow">→</div>
+        <div class="loop-step highlight-beacon">写笔记，照更远</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container-wide">
+      <div class="section-header">
+        <h2 class="section-title">核心功能一览</h2>
+        <p class="section-intro">不是又一个文献管理插件——是一套让盲区可被看见、被探索、被讲述的机制。</p>
+      </div>
+
+      <div class="highlight-grid">
+        <article class="highlight-card">
+          <img src="screenshots/03-leads-panel.png" alt="反推荐线索面板" loading="lazy" width="640" height="360">
+          <h3>反推荐线索</h3>
+          <p>按陌生度排序，而非相似度。每条线索带人话理由——「连接 A 与 B」「你还未踏入 C」。</p>
+          <a href="features.html#leads">了解更多 →</a>
+        </article>
+        <article class="highlight-card">
+          <img src="screenshots/04-regions-panel.png" alt="区域版图面板" loading="lazy" width="640" height="360">
+          <h3>区域版图</h3>
+          <p>界面能说出「『因果推断』你从未踏入过」。空白区域有名字，盲区才能被讨论。</p>
+          <a href="features.html#regions">了解更多 →</a>
+        </article>
+        <article class="highlight-card">
+          <img src="screenshots/05-expeditions-panel.png" alt="探索任务面板" loading="lazy" width="640" height="360">
+          <h3>探索任务</h3>
+          <p>由地图实时推导，不存储进度。局面变了，任务自己消失——唯一奖励是更大的地图。</p>
+          <a href="features.html#quests">了解更多 →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">三步上手</h2>
+      <p class="section-intro">首次启动点「载入示例地图」，2 分钟内看到完整机制。</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>载入地图或导入文库</h3>
+            <p>支持 Zotero CSV、BibTeX、RIS、JSON。示例地图自带五个方向的真实论文数据。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>标记已读，推开迷雾</h3>
+            <p>每读一篇，邻接文献从迷雾边缘浮现。写笔记升级为灯塔，比普通已读多照一跳。</p>
+            <div class="browser-frame">
+              <div class="browser-frame-bar"><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span></div>
+              <img src="screenshots/workflows/explore-loop.gif" alt="标记已读、写笔记、地图扩张的演示动画" width="640" height="360" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>沿线索拓展，发现盲区</h3>
+            <p>打开「去哪儿」面板，选一条陌生但可达的线索。地图实时反映你的认知边界变化。</p>
+            <a href="how-it-works.html" class="btn btn-primary">完整使用指南</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">适用场景</h2>
+      <div class="scenario-list">
+        <article class="scenario">
+          <span class="scenario-tag">研究生</span>
+          <h3>发现文献盲区</h3>
+          <p>导入 Zotero 800 篇，标记精读后打开版图——「原来我的研究版图长这样」。</p>
+        </article>
+        <article class="scenario">
+          <span class="scenario-tag">答主</span>
+          <h3>写领域入门长文</h3>
+          <p>从线性书单升级为探索路径可视化——读者看到的是可复现的认知过程。</p>
+        </article>
+        <article class="scenario">
+          <span class="scenario-tag">跨领域</span>
+          <h3>建立全局感</h3>
+          <p>沿桥梁线索连接两个区域，适合「一张图看懂 XX 与 YY 的关系」。</p>
+        </article>
+        <article class="scenario">
+          <span class="scenario-tag">综述</span>
+          <h3>结构自检</h3>
+          <p>写综述前检查区域覆盖度与高陌生度节点，地图实时反映结构完整性。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="tech-stats">
+        <div class="stat"><span class="stat-num">~95ms</span><span class="stat-label">buildWorld（1000 篇）</span></div>
+        <div class="stat"><span class="stat-num">纯函数</span><span class="stat-label">规则变更无需迁移</span></div>
+        <div class="stat"><span class="stat-num">本地优先</span><span class="stat-label">文库不上传</span></div>
+        <div class="stat"><span class="stat-num">Tauri 2</span><span class="stat-label">跨平台桌面端</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <h2>唯一的奖励，是更大的地图。</h2>
+      <p>研图 Yantu · 本地优先 · 开放探索</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="http://localhost:5173" class="btn btn-primary">体验 Demo</a>
+        <a href="features.html" class="btn btn-secondary">查看全部功能</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="index.html">首页</a>
+      <a href="features.html">功能</a>
+      <a href="how-it-works.html">如何使用</a>
+      <a href="../docs/产品说明计划书.md">完整计划书</a>
+    </div>
+    <p>研图 Yantu · 产品展示 · 2026</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const menu = document.getElementById('menuToggle');
+    const nav = document.getElementById('navLinks');
+    const saved = localStorage.getItem('yantu-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+    toggle?.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('yantu-theme', next);
+    });
+    menu?.addEventListener('click', () => nav?.classList.toggle('open'));
+  </script>
+</body>
+</html>

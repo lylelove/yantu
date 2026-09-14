@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>功能详解 — 研图 Yantu</title>
+  <meta name="description" content="迷雾机制、反推荐线索、区域版图、探索任务、多格式导入——研图 Yantu 完整功能介绍。">
+  <meta property="og:title" content="研图 Yantu 功能详解">
+  <meta property="og:image" content="screenshots/02-hero-map.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">研图 <span>Yantu</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">首页</a>
+      <a href="features.html" class="active">功能</a>
+      <a href="how-it-works.html">如何使用</a>
+      <a href="../docs/产品说明计划书.md">计划书</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="切换主题">◐</button>
+      <a href="http://localhost:5173" class="nav-cta">体验 Demo</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="菜单">☰</button>
+    </div>
+  </nav>
+
+  <header class="hero" style="min-height:auto;padding:64px 32px 48px">
+    <div class="hero-content" style="grid-column:1/-1;max-width:720px">
+      <p class="hero-badge">功能详解</p>
+      <h1>每个功能都在回答<br><strong>「我还不知道什么」</strong></h1>
+      <p class="hero-lead">不是功能清单，而是一套让盲区可见、可探索、可讲述的产品机制。</p>
+    </div>
+  </header>
+
+  <section class="section" id="fog">
+    <div class="container-wide">
+      <article class="feature-block">
+        <div>
+          <span class="feature-tag">核心机制</span>
+          <h2>迷雾与可见度</h2>
+          <p>五级可见度阶梯：迷雾 → 隐约 → 前沿 → 已读 → 灯塔。光沿强边传播，没照到的地方留在迷雾里——这不是加载状态，而是认知边界的可视化。</p>
+          <ul>
+            <li>导入的文献至少是「前沿」——藏起用户自己的文库等于撒谎</li>
+            <li>暖琥珀 = 已读，冷青色 = 写了笔记的灯塔</li>
+            <li>色相表示区域，亮度表示认知深度</li>
+          </ul>
+          <div class="vis-legend">
+            <span class="vis-item"><span class="vis-dot lit"></span> 已读</span>
+            <span class="vis-item"><span class="vis-dot beacon"></span> 灯塔（有笔记）</span>
+            <span class="vis-item"><span class="vis-dot frontier"></span> 前沿（未读）</span>
+            <span class="vis-item"><span class="vis-dot sensed"></span> 隐约可见</span>
+          </div>
+        </div>
+        <div class="browser-frame">
+          <div class="browser-frame-bar"><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span></div>
+          <img src="screenshots/02-hero-map.png" alt="迷雾地图：已读节点发光，前沿文献在边缘等待" loading="lazy">
+        </div>
+      </article>
+
+      <article class="feature-block reverse" id="leads">
+        <div>
+          <span class="feature-tag">反茧房</span>
+          <h2>线索系统：刻意反推荐</h2>
+          <p>普通推荐按「和你已读有多像」排序——那正是研究者需要逃离的信息茧房。Yantu 把陌生度 + 桥梁性的权重压过相似度。</p>
+          <ul>
+            <li>分数 = 0.45×陌生度 + 0.30×桥梁性 + 0.25×可达性</li>
+            <li>每条线索必须给出人话理由</li>
+            <li>最好的线索，是可达但在别处的文献</li>
+          </ul>
+        </div>
+        <div class="browser-frame">
+          <div class="browser-frame-bar"><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span></div>
+          <img src="screenshots/03-leads-panel.png" alt="去哪儿面板：按陌生度排序的线索推荐" loading="lazy">
+        </div>
+      </article>
+
+      <article class="feature-block" id="regions">
+        <div>
+          <span class="feature-tag">版图</span>
+          <h2>区域：让「没去过」可以被说出口</h2>
+          <p>区域用可解释的关键词划分，保证稳定且可叙事。界面能说出「『强化学习』你从未踏入过」——一个有名字的空地，才做得到。</p>
+          <ul>
+            <li>可解释：区域名来自语料，用户能复述</li>
+            <li>稳定：同一份语料永远产出同一批区域</li>
+            <li> beckoning 区域高亮提示待探索方向</li>
+          </ul>
+        </div>
+        <div class="browser-frame">
+          <div class="browser-frame-bar"><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span></div>
+          <img src="screenshots/04-regions-panel.png" alt="版图面板：各研究区域的覆盖度与空白" loading="lazy">
+        </div>
+      </article>
+
+      <article class="feature-block reverse" id="quests">
+        <div>
+          <span class="feature-tag">探索</span>
+          <h2>探索任务：由地图推导，不存储进度</h2>
+          <p>探索目标完全由当前地图实时推导。局面变了，任务自己消失——无法过期、无法被刷、不需要数据迁移。</p>
+          <ul>
+            <li>无分数、无等级、无连续登录天数</li>
+            <li>唯一奖励：更大的地图</li>
+            <li>任务描述直接来自当前盲区形状</li>
+          </ul>
+        </div>
+        <div class="browser-frame">
+          <div class="browser-frame-bar"><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span></div>
+          <img src="screenshots/05-expeditions-panel.png" alt="探索任务面板" loading="lazy">
+        </div>
+      </article>
+
+      <article class="feature-block" id="paper">
+        <div>
+          <span class="feature-tag">详情</span>
+          <h2>论文详情：从地图到深度阅读</h2>
+          <p>点击地图节点打开详情面板。标记已读、写笔记升灯塔、查看引用关系——每个动作都直接改变地图形状。</p>
+          <ul>
+            <li>笔记是唯一的视野增益，点击无回报</li>
+            <li>可选 OpenAlex 联网扩展（仅发送单条标识符）</li>
+            <li>AI 解读辅助理解（可选）</li>
+          </ul>
+        </div>
+        <div class="browser-frame">
+          <div class="browser-frame-bar"><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span></div>
+          <img src="screenshots/06-paper-detail.png" alt="论文详情面板：标记已读与写笔记" loading="lazy">
+        </div>
+      </article>
+
+      <article class="feature-block reverse" id="import">
+        <div>
+          <span class="feature-tag">导入</span>
+          <h2>多格式导入：你的文库属于你</h2>
+          <p>支持 Zotero CSV、BibTeX、RIS、CSL-JSON。导入前显示预览：识别多少条、重复多少、跳过哪些以及为什么。原文件只读，不会被修改。</p>
+          <ul>
+            <li>同一论文不同标识符自动归并（DOI / OpenAlex / arXiv）</li>
+            <li>读进度和笔记随合并迁移，不会丢</li>
+            <li>存档可导出为纯 JSON，随时带走</li>
+          </ul>
+        </div>
+        <div class="browser-frame">
+          <div class="browser-frame-bar"><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span></div>
+          <img src="screenshots/07-import-sheet.png" alt="导入文献面板：支持多种格式" loading="lazy">
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">更多能力</h2>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon fog-icon"></div>
+          <h3>语义搜索</h3>
+          <p>搜索标题、作者、主题——只搜索已可见的文献，迷雾中的未知不会被误搜到。</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon import-icon"></div>
+          <h3>笔记回顾与导出</h3>
+          <p>集中查看所有笔记，一键导出 Markdown。探索过程天然产生叙事线。</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon privacy-icon"></div>
+          <h3>本地优先隐私</h3>
+          <p>存档在本机，联网仅在你点「联网扩展」时发生，且只发送单条标识符。文库从不上传。</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon quests-icon"></div>
+          <h3>多存档槽位</h3>
+          <p>不同项目独立存档，随时切换。导出 JSON 备份，数据永远在你手里。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="browser-frame">
+        <div class="browser-frame-bar"><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span></div>
+        <img src="screenshots/08-search.png" alt="搜索功能：在可见文献中快速定位" loading="lazy">
+      </div>
+      <p style="text-align:center;margin-top:16px;color:var(--ink-muted);font-size:0.9rem">在已点亮的地图范围内快速搜索——找到你想 revisit 的那篇论文</p>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <h2>准备好探索你的盲区了吗？</h2>
+      <p>载入示例地图，2 分钟内看到完整机制</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="http://localhost:5173" class="btn btn-primary">体验 Demo</a>
+        <a href="how-it-works.html" class="btn btn-secondary">如何使用</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="index.html">首页</a>
+      <a href="features.html">功能</a>
+      <a href="how-it-works.html">如何使用</a>
+    </div>
+    <p>研图 Yantu · 产品展示 · 2026</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const menu = document.getElementById('menuToggle');
+    const nav = document.getElementById('navLinks');
+    const saved = localStorage.getItem('yantu-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+    toggle?.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('yantu-theme', next);
+    });
+    menu?.addEventListener('click', () => nav?.classList.toggle('open'));
+  </script>
+</body>
+</html>
